@@ -60,8 +60,8 @@ export function Services() {
               title="We render the best service"
               description="In a remote region beyond the towering word-mountains, far removed from the realms of Vokalia and Consonantia, there resided the forgotten texts. Secluded within Bookmarksgrove, situated along the coast of the Semantics and bordered by an expansive linguistic sea, they lived in quiet isolation. A gentle river called Duden coursed through their dwelling place, carrying an enduring tranquility. Upon waking from a night of troubled dreams, Gregor Samsa found himself altered in a manner he could scarcely comprehend."
               align="left"
-              titleStylesOveride="px-0 text-3xl md:text-2xl!  font-montserrat md:font-semibold md:text-nowrap "
-              className="flex font-montserrat md:relative md:gap-5 md:justify-center"
+              titleStylesOveride="px-0 text-3xl md:text-2xl!  font-montserrat md:font-semibold md: "
+              className="md:flex font-montserrat md:relative md:gap-5 md:justify-center"
               descriptionStyles=""
             />
           </div>

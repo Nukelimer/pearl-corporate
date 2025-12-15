@@ -21,6 +21,7 @@ interface TestimonialsCarouselProps {
 }
 
 const BACKGROUND_IMAGE = "/homepage/carousel_bg.jpg";
+const BACKGROUND_IMAGE_HD = "/homepage/client.png";
 
 export default function TestimonialsCarousel({
   testimonials,
@@ -87,82 +88,92 @@ export default function TestimonialsCarousel({
   }, []);
 
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden pb-24 h-[100vh] ">
-      <div className="">
-        <div className="h-24 bottom-0 absolute bg-white  w-full left-0 blur-md "></div>
+    <section className="relative flex flex-col justify-center md:overflow-visible pb-24 min-h-screen py-12 md:h-full md:pb-0  ">
+      {/* <div className="md:hidden">
+        <div className="h-24 bottom-0 absolute bg-white  w-full left-0 blur-md md:blur-none "></div>
         <div className="absolute  top-0 inset-0  -z-10">
-          <Image
-            src={BACKGROUND_IMAGE}
-            alt="Background"
-            fill
-            priority
-            className="object-cover blur-md rounded-2xl  h-screen"
-          />
-          {/* <div className="absolute inset-0 shadow-[0_0_120px_60px_rgba(251,146,60,0.5)] pointer-events-none" />
-          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" /> */}
+          <div className="absolute inset-0 shadow-[0_0_120px_60px_rgba(251,146,60,0.5)] pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
         </div>
-      </div>
+      </div> */}
+      <Image
+        src={BACKGROUND_IMAGE}
+        alt="Background"
+        fill
+        priority
+        className="object-cover md:hidden blur-md rounded-2xl  h-full md:h-full md:blur-none md:rounded-none"
+      />
 
-      {/* Content */}
-      <div className="relative z-10  container  my-auto mx-auto px-6 ">
-        <SectionHeader
-          label="Testimonials"
-          labelStyles="text-amber-400 font-semibold tracking-wider uppercase"
-          title="Words from our clients"
-          titleStylesOveride="text-white text-3xl md:text-4xl pt-4 font-bold text-center leading-tight"
-          isHorizonatalLine="h-14 w-px bg-amber-400 mx-auto my-12"
-        />
+      <Image
+        src={BACKGROUND_IMAGE_HD}
+        alt="Background"
+        fill
+        priority
+        className="object-cover absolute md:object-fill md:block top-0 hidden blur-md rounded-2xl  h-full md:blur-none md:rounded-none brightness-50 md:border -z-10"
+      />
 
-        {/* Testimonial Carousel */}
-        <div className="relative max-w-5xl mx-auto my-7">
-          <div
-            className="flex transition-transform duration-1000 ease-in-out"
-            style={{ transform: `translateX(${-100 * currentIndex}%)` }}>
-            {testimonials.map((testimonial, i) => (
-              <div key={i} className="min-w-full">
-                <div className="flex justify-center">
-                  <TestimonialCard
-                    {...testimonial}
-                    index={i}
-                    className="max-w-2xl  rounded-3xl p-10 l"
-                  />
+      <div className="md:mx-12 md:border md:rounded-b-2xl md:overflow-hidden">
+
+        <div className="relative z-10  container  my-auto mx-auto px-6 ">
+          <SectionHeader
+            label="Testimonials"
+            isLabelAvl={false}
+            labelStyles="text-accent font-semibold tracking-wider uppercase md:pt-12 md:mb-0"
+            title="Words from our clients"
+            titleStylesOveride="font-montserrat font-medium! px-38 text-white text-3xl md:text-2xl! pt-4 font-bold text-center leading-tight"
+            isHorizonatalLine="h-10 md:h-10 md:w-1 w-px bg-accent mx-auto my-12"
+          />
+
+   
+          <div className="relative max-w-5xl mx-auto my-7 h-full">
+            <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(${-100 * currentIndex}%)` }}>
+              {testimonials.map((testimonial, i) => (
+                <div key={i} className="min-w-full">
+                  <div className="flex justify-center">
+                    <TestimonialCard
+                      {...testimonial}
+                      index={i}
+                      className="max-w-2xl  rounded-3xl px-10"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Seek Indicators (Progress Dots) */}
-      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20">
-        <div className="flex items-center gap-4 rounded-3xl bg-white/10 backdrop-blur-lg px-8 py-3 border border-white/20">
-          {testimonials.map((_, i) => {
-            const isActive = i === currentIndex;
+      
+        <div className="absolute bottom-10 md:static left-1/2 -translate-x-1/2 md:translate-0 md:w-fit md:mx-auto z-20 md:z-0 md: pb-6">
+          <div className="flex items-center gap-4 rounded-3xl bg-white/10 backdrop-blur-lg px-8 py-3 border border-white/20">
+            {testimonials.map((_, i) => {
+              const isActive = i === currentIndex;
 
-            return (
-              <button
-                key={i}
-                onClick={() => goToSlide(i)}
-                className="relative"
-                aria-label={`Testimonial ${i + 1}`}>
-                <div
-                  className={`relative rounded-full overflow-hidden transition-all duration-500 ${
-                    isActive ? "w-16 md:w-28 h-2" : "w-2 h-2"
-                  }`}>
-                  <div className="absolute inset-0 rounded-full bg-gray-300  group-hover:bg-amber-400 transition-colors" />
-
-                  {/* Progress bar (only on active) */}
+              return (
+                <button
+                  key={i}
+                  onClick={() => goToSlide(i)}
+                  className="relative"
+                  aria-label={`Testimonial ${i + 1}`}>
                   <div
-                    ref={(el) => {
-                      progressRefs.current[i] = el as HTMLDivElement | null;
-                    }}
-                    className="absolute top-0 left-0 h-full bg-amber-400 rounded-full origin-left"
-                    style={{ width: isActive ? "0%" : "0%" }} // GSAP will animate this
-                  />
-                </div>
-              </button>
-            );
-          })}
+                    className={`relative rounded-full overflow-hidden transition-all duration-500 ${
+                      isActive ? "w-16 md:w-28 h-2" : "w-2 h-2"
+                    }`}>
+                    <div className="absolute inset-0 rounded-full bg-gray-300  group-hover:bg-amber-400 transition-colors" />
+
+                    <div
+                      ref={(el) => {
+                        progressRefs.current[i] = el as HTMLDivElement | null;
+                      }}
+                      className="absolute top-0 left-0 h-full bg-accent rounded-full origin-left"
+                      style={{ width: isActive ? "0%" : "0%" }}
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

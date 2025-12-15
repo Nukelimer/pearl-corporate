@@ -22,7 +22,7 @@ export function Team({
 }) {
   return (
     <section id="team" className="py-20 md:py-0 ">
-      <div className="container md:max-w-full mx-auto px-4 md:relative border-5">
+      <div className="container md:max-w-full mx-auto px-4 md:relative ">
         <Image
           src="/homepage/law_court.jpg"
           alt="bg"

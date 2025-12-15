@@ -5,6 +5,7 @@ import { cn } from "@/app/lib/utils";
 import { CheckCircle } from "lucide-react";
 import StraightVerticalLine from "../sections/StraightVerticalLine";
 import StraightHorizontalLine from "../sections/StraightHorizontalLine";
+import { AboutCard } from "../about/AboutCard";
 
 interface SectionHeaderProps {
   isLabelAvl?: boolean | string;
@@ -72,6 +73,13 @@ export function Quote({
         </div>
       )}
 
+      {true && (
+        <div>
+          <h4 className="text-black/40 uppercase font-semibold ">about Pearlaw</h4>
+          <h4 className="font-bold text-xl pt-2">Our Gorgeous History</h4>
+         
+        </div>
+      )}
       {description && (
         <p
           className={cn(

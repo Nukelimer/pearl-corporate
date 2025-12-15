@@ -54,9 +54,7 @@ export function TestimonialCard({
   }, [index]);
 
   return (
-    <div
-      ref={ref}
-      className={cn(" m-2  my-auto rounded-xl ", className)}>
+    <div ref={ref} className={cn(" m-2  my-auto rounded-xl ", className)}>
       <div className="flex items-center gap-3 mb-4">
         <div className="relative w-12 h-12 overflow-hidden mx-auto">
           <Image
@@ -73,8 +71,14 @@ export function TestimonialCard({
         {content}
       </p>
 
-      <div className="flex items-center gap-4">
-        <img src="./homepage/headshot.jpg" alt="headshot" className="size-20 object-cover rounded-full" />
+      <div className="flex mx-auto justify-center items-center gap-4">
+        <Image
+          src="/homepage/headshot.jpg"
+          alt="headshot"
+          width={100}
+          height={100}
+          className="size-20 object-cover rounded-full"
+        />
         <div>
           <h4 className="font-semibold text-white">{name}</h4>
           <p className="text-sm text-accent">{role}</p>

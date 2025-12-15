@@ -33,12 +33,12 @@ export function SpecialisedAreas({
 }) {
   return (
     <section id="services" className="py-20 md:py-28 b g-secondary">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         <SectionHeader
           isLabelAvl={false}
           label={label || "Our Expertise"}
           title={title || "Legal Practice Areas"}
-          className={`mb-12 `}
+          className={`mb-12 font-montserrat!`}
           titleStylesOveride={stylesOveride}
         />
 

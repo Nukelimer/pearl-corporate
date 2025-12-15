@@ -70,6 +70,8 @@ export default function Home() {
         testimonials={myTestimonials}
         autoPlayDelay={7000}
       />
+
+      {/* ADD BLOOG */}
     
       <CTA />
 

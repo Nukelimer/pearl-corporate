@@ -41,7 +41,7 @@ export function Contact() {
       id="contact"
       className="py-20 md:py-28  bg-[ #F7F7F7E5]  md:bg-white  md:relative md:flex justify-center">
       <div className="container mx-auto px-4 md:px-0 md:p-0 md:absolute  bg-white/80  md:-top-104 rounded-md p-8 md:max-w-3xl  z-10">
-        <div className="md:relative overflow-clip md:rounded-2xl md: pb-8">
+        <div className="md:relative overflow-clip md:rounded-2xl md: pb-8 px-8 md:px-0">
           <div className="absolute inset-0 -z-10 hidden md:block">
             {/* Image */}
             <Image

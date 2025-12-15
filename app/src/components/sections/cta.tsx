@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react"
 import { Button } from "../ui/button"
 import { Phone, Mail, MapPin, CalendarDays, Clock4 } from "lucide-react"
 import { Newsletter } from "./newsletter"
+import Image from "next/image"
+import StraightVerticalLine from "./StraightVerticalLine"
 
 export function CTA() {
   const ref = useRef<HTMLDivElement>(null)
@@ -35,19 +37,21 @@ export function CTA() {
   }, [])
 
   return (
-    <section className="pb-20 md:py-28 relative flex flex-col ">
-      <img
+    <section className="pb-20 md:py-28 md:pt--0 relative flex flex-col ">
+      <Image
         src="/homepage/carousel_bg.jpg"
         alt="image"
         className="absolute h-full  w-full brightness-60 w -40"
+        fill
+        priority
       />
-      <div className="containe r z-10 mx-auto ">
+      <div className="md:container z-10 mx-auto md:border md:max-w-[90%]  md:rounded-b-2xl ">
         <div ref={ref} className=" p-8 md:p-12 text-center text-white">
-          <h2 className="text-3xl px-8 max-w-sm mx-auto md:text-3xl font-mono mb-4">
+          <h2 className="text-3xl px-8 font-montserrat md:text-sm md:font-bold md:uppercase max-w-sm mx-auto  md:px-0 md:max-w-full mb-4">
             Are you looking for someone to help?
           </h2>
-          <p className="text-accent mb-8 max-w-xl mx-auto">
-            Let us help you! Call Now <br />: (234)813 614 1666
+          <p className="text-accent mb-8 md:mb-4 max-w-xl mx-auto md:text-2xl">
+            Let us help you! Call Now <br className="md:hidden" />: (234)813 614 1666
           </p>
 
           <div className="fle x flex-col sm:flex-row gap-4 justify-center mb-8 hidden">
@@ -77,12 +81,14 @@ export function CTA() {
             </a>
             <span className="flex items-center gap-2">
               <Clock4 className="w-4 h-4" />
-            Mon - Fri: 9:00AM - 6:00PM
+              Mon - Fri: 9:00AM - 6:00PM
             </span>
           </div>
         </div>
+
+        <StraightVerticalLine className="w-1 h-8"/>
+      <Newsletter />
       </div>
-            <Newsletter />
     </section>
   );
 }

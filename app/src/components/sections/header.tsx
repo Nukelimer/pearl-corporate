@@ -5,31 +5,36 @@ import Link from "next/link";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "@/app/lib/utils";
-
+import { usePathname } from "next/navigation";
 const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Team", href: "#team" },
-  { name: "Contact", href: "#contact" },
+  { name: "Experience", href: "/experience" },
+  { name: "About", href: "/about" },
+  { name: "Team", href: "/dream-team" },
+  { name: "Expertise", href: "/expertise" },
+  { name: "Plans", href: "/plans" },
+  { name: "Join Us", href: "/join-our-team" },
+  { name: "Contact", href: "/contact-us" },
 ];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrolled(window.scrollY > 50);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
+  const pathname = usePathname();
+  
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ",
         "bg-white/95 backdrop-blur-sm shadow-sm"
       )}>
       <div className="container xl:justify-between mx-auto px-4 my-2">
@@ -42,19 +47,29 @@ export function Header() {
                 className="size-8 md:size-14"
               />
 
-              <h1 className="capitalize font-medium lg:flex hidden">Pearlaw Corporate</h1>
+              <h1 className="capitalize font-medium md:text-black lg:flex hidden">
+                Pearlaw Corporate
+              </h1>
             </div>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={cn(
+                    "text-sm font-medium font-montserrat transition-colors px-3 py-1",
+                    isActive
+                      ? "font-bold text-accent "
+                      : "text-muted-foreground hover:text-primary hover:border-b-2 hover:border-b-black border-b border-transparent"
+                  )}>
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
           <Button

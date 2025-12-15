@@ -159,7 +159,7 @@ export default function ContactForm() {
           placeholder="Message*"
           rows={5}
           {...register("message")}
-          className="bg-white border-none min-h-40 md:min-h-12 resize-none"
+          className="bg-white border min-h-40 md:min-h-12 resize-none"
         />
         {errors.message && (
           <p className="text-red-500 text-sm">{errors.message.message}</p>
