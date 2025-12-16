@@ -52,7 +52,7 @@ export function TeamCard({
     <div
       ref={ref}
       className={cn(
-        "text-center bg-[#F9F9F9] pb-14 m-16 rounded-md group mt-4",
+        "text-center bg-white pb-14 select-none pointer-events-none m- 16 rounded-md group mt-4 flex flex-col w-full sm:pb-6 sm:mb-0  mx-4",
         className
       )}>
       <div className="relative w-full flex flex-col items-center mx-auto mb-4 rounded-md group-hover:border-accent transition-colors duration-300 ">
@@ -61,11 +61,15 @@ export function TeamCard({
           alt={name}
           width={100}
           height={100}
-          className="object-cover size-full max-h-[800px] rounded-t-md w-full"
+          className="object-cover  size-full max-h-[800px] rounded-t-md w-full items-stretch"
         />
       </div>
-      <h3 className="text-2xl font-semibold text-primary">{name}</h3>
-      <p className="text-sm text-accent uppercase mt-2">{role}</p>
+      <h3 className="text-lg font-semibold font-montserrat text-primary items-stretch ">
+        {name}
+      </h3>
+      <p className="text-xs text-accent uppercase font-montserrat mt-2 md:pb-8 items-stretch">
+        {role}
+      </p>
     </div>
   );
 }

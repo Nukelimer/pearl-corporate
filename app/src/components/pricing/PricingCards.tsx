@@ -16,7 +16,7 @@ const pricingPlans = [
     id: "gem",
     duration: "3 Months",
     name: "GEM Plan",
-    price: "#400,000",
+    price: "₦400,000",
     description: "Perfect for early-stage startups and small businesses",
     popular: false,
     features: [
@@ -31,7 +31,7 @@ const pricingPlans = [
     id: "ivory",
     duration: "6 Months",
     name: "IVORY Plan",
-    price: "#750,000",
+    price: "₦750,000",
     description: "Ideal for growing businesses with regular legal needs.",
     popular: true,
     features: [
@@ -48,7 +48,7 @@ const pricingPlans = [
     id: "jade",
     duration: "12 Months",
     name: "JADE Plan",
-    price: "#1,400,000",
+    price: "₦1,400,000",
     description: "Comprehensive legal support for established businesses",
     features: [
       "Unlimited legal consultation",
@@ -76,10 +76,17 @@ interface PricingProps {
 }
 export default function Pricing() {
   return (
-    <section className="py-20 bg-white text-black">
+    <section className="py-20 md:pb-0 bg-white md:bg-transparent text-black">
       <div className="max-w-6xl mx-auto px-4 space-y-8">
-        <h2 className="text-xl ">Preferred Plan</h2>
+        <h2 className="text-xl md:hidden">Preferred Plan</h2>
+        <h2 className="text-xl hidden md:block text-white text-center  font-semibold! uppercase">
+          Retainership Plans
+        </h2>
 
+        <p className="hidden md:block text-white max-w-2xl mx-auto text-center ">
+          Choose a plan that fits your business need. Get ongoing legal support
+          with predictable costs and priority access to our expertise.
+        </p>
         {/* Mobile: Accordion */}
         <Accordion
           type="single"
@@ -105,14 +112,13 @@ export default function Pricing() {
           <div className="opacity-0"></div>
         </Accordion>
 
-        {/* Desktop: All cards open */}
-        <div className="hidden md:grid md:grid-cols-3 gap-6">
+        <div className="hidden md:grid md:grid-cols-3 gap-6  ">
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
               className={clsx(
-                "border rounded-2xl p-6 space-y-6",
-                plan.popular && "border-black"
+                " rounded-2xl p-6 space-y-6 ",
+                plan.popular && "border-black "
               )}>
               <PricingCardContent plan={plan} />
             </div>
@@ -123,27 +129,25 @@ export default function Pricing() {
   );
 }
 
-/* ---------------------------------
- * Shared card content
- * --------------------------------- */
+
 function PricingCardContent({ plan }: { plan: PricingProps }) {
   return (
-    <div className="relative flex flex-col item-center mx-auto border rounded-md mt-12 p-6 pb-8">
+    <div className="md:bg-white relative md:items-stretch md:h-full flex flex-col item-center mx-auto border rounded-md mt-12 p-6 pb-8 md:text-xs">
       {plan.popular && (
         <div className=" w-full flex justify-center item-center absolute -top-4">
-          <span className=" bg-black text-white px-4 py-2   mx-auto z-50 rounded-full text-sm ">
+          <span className=" bg-black md:bg-accent text-white px-4 py-2   mx-auto z-50 rounded-full text-sm ">
             Most Popular
           </span>
         </div>
       )}
 
-      <div className="text-center flex flex-col  gap-6">
-        <h3 className="text-xl font-semibold  mt-6">{plan.name}</h3>
+      <div className="text-center flex flex-col  gap-6 md:gap-2">
+        <h3 className="text-xl font-semibold  mt-6 md:mt-2">{plan.name}</h3>
         <p className="text-4xl font-bold">{plan.price}</p>
         <p className="text-gray-500">{plan.description}</p>
       </div>
 
-      <ul className="flex flex-col  my-6 gap-6">
+      <ul className="flex flex-col  my-6 md:gap-3 md:my-3 gap-6">
         {plan.features.map((feature: string) => (
           <li key={feature} className="flex gap-3">
             <Check className="w-5 h-5 text-green-600 mt-1" />
@@ -152,10 +156,14 @@ function PricingCardContent({ plan }: { plan: PricingProps }) {
         ))}
       </ul>
 
-      <Button size={"lg"}
+      <Button
+        size={"lg"}
         className={clsx(
-          "w-full gap-2",
-          plan.popular ? "bg-accent text-white" : "bg-gray-100 text-black"
+          "w-full gap-2  cursor-pointer",
+          plan.popular
+            ? "bg-accent text-white"
+            : "bg-gray-100 md:bg-white md:border hover:bg-accent hover:text-white cursor-pointer text-black",
+          plan.name == "GEM Plan" ? "md:translate-y-30" : ""
         )}>
         <Calendar className="w-4 h-4" />
         Get Started

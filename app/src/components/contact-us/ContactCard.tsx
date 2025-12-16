@@ -11,8 +11,12 @@ interface ContactCardProps {
 
 export const ContactCard: React.FC<ContactCardProps> = ({ item }) => {
   return (
-    <div className=" rounded-2xl  p-6 flex items-start justify-center gap-5 hover:shadow-lg transition-shadow">
-      <div className={cn("p-3 bg-gray-900 text-white rounded-xl shadow-black drop-shadow-2xl " , item.title == "WhatsApp" ? "bg-accent": "")}>
+    <div className=" rounded-2xl  p-6 flex items-start justify-center gap-5 hover:shadow-lg md:hover:shadow-none cursor-pointer transition-shadow">
+      <div
+        className={cn(
+          "p-3 bg-gray-900 text-white rounded-xl shadow-black md:shadow-none md:drop-shadow-none drop-shadow-2xl ",
+          item.title == "WhatsApp" ? "bg-accent" : ""
+        )}>
         {item.icon}
       </div>
       <div className="flex-1">

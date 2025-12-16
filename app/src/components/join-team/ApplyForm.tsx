@@ -15,7 +15,7 @@ import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { ApplyFormData, applySchema } from "@/app/lib/applySchema";
 
-// --- Time slots
+
 const timeSlots = ["09:00 AM", "11:00 AM", "01:00 PM", "03:00 PM", "05:00 PM"];
 
 export default function ApplyForm() {
@@ -58,9 +58,16 @@ export default function ApplyForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-5/6 max-w-xl mx-auto space-y-4 flex flex-col  border p-5 rounded-md bg-white shadow-2xl mt-8 ">
+      className="w-5/6 md:w-full  max-w-xl md:max-w-4xl md:pb-16 mx-auto space-y-4 flex-col  border p-5 rounded-md bg-white shadow-2xl mt-8 ">
+      <div className=" hidden md:block flex-col my-8 pb-4">
+        <h4 className="text-center mb-2 font-bold capitalize">Apply now!</h4>
+        <p className=" max-w-sm text-sm   text-center mx-auto">
+          Fill out the form below to submit your application.
+        </p>
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-6">
-        <div className="flex  flex-col gap-4">
+        <div className="flex md:items-start flex-col gap-4">
           <label htmlFor="fName">Full Name*</label>
           <Input
             placeholder="Enter your full name*"
@@ -72,7 +79,7 @@ export default function ApplyForm() {
             <p className="text-red-500 text-sm">{errors.name.message}</p>
           )}
         </div>
-        <div className="flex  flex-col gap-4">
+        <div className="flex md:items-start flex-col gap-4">
           <label className="" htmlFor="phone">
             Phone*
           </label>
@@ -88,7 +95,7 @@ export default function ApplyForm() {
           )}
         </div>
 
-        <div className="flex  flex-col gap-4">
+        <div className="flex md:items-start  flex-col gap-4">
           <label htmlFor="email">Email*</label>
           <Input
             placeholder="Email Address*"
@@ -102,7 +109,9 @@ export default function ApplyForm() {
         </div>
 
         <div>
-          <label htmlFor="yog" className="flex  flex-col gap-4 mb-4">
+          <label
+            htmlFor="yog"
+            className="flex md:items-start flex-col gap-4 mb-4">
             Year of Graduation*
           </label>
           <Input

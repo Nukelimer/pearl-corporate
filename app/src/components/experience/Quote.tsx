@@ -75,9 +75,12 @@ export function Quote({
 
       {true && (
         <div>
-          <h4 className="text-black/40 uppercase font-semibold ">about Pearlaw</h4>
-          <h4 className="font-bold text-xl pt-2">Our Gorgeous History</h4>
-         
+          <h4 className="text-black/40 uppercase font-semibold font-montserrat!">
+            about Pearlaw
+          </h4>
+          <h4 className="font-bold text-xl pt-2 font-montserrat">
+            Our Gorgeous History
+          </h4>
         </div>
       )}
       {description && (

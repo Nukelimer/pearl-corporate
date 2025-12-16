@@ -7,14 +7,16 @@ import { Button } from "../ui/button";
 import { cn } from "@/app/lib/utils";
 import { usePathname } from "next/navigation";
 const navLinks = [
-  { name: "Experience", href: "/experience" },
+  { name: "Experience plc", href: "/experience" },
   { name: "About", href: "/about" },
-  { name: "Team", href: "/dream-team" },
+  { name: "Meet the Team", href: "/dream-team" },
   { name: "Expertise", href: "/expertise" },
   { name: "Plans", href: "/plans" },
-  { name: "Join Us", href: "/join-our-team" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact-us" },
 ];
+// { name: "Join Us", href: "/join-our-team" }
+//  { name: "Retainership", href: "/plans" },
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,13 +49,13 @@ export function Header() {
                 className="size-8 md:size-14"
               />
 
-              <h1 className="capitalize font-medium md:text-black lg:flex hidden">
+              <h1 className="capitalize font-medium text-sm md:text-black lg:flex hidden">
                 Pearlaw Corporate
               </h1>
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 text-nowrap ">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -61,9 +63,9 @@ export function Header() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium font-montserrat transition-colors px-3 py-1",
+                    "text-xs font-medium font-montserrat transition-colors px-3 py-1",
                     isActive
-                      ? "font-bold text-accent "
+                      ? "font-bold text-accent text-sm "
                       : "text-muted-foreground hover:text-primary hover:border-b-2 hover:border-b-black border-b border-transparent"
                   )}>
                   {link.name}
@@ -74,11 +76,11 @@ export function Header() {
 
           <Button
             size="sm"
-            className="bg-accent hidden md:flex text-light! hover:bg-accent/90 text-white">
+            className="bg-accent hidden md:flex text-light! hover:bg-accent/90 text-white font-light text-xs">
             Get In Touch
           </Button>
 
-          <div className=" flex md:hidden items-center gap-4">
+          <div className=" flex md:hidden items-center gap-4 text-xs">
             <Button className="bg-[#C84E26] " size={"sm"}>
               Get in touch
             </Button>

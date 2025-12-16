@@ -32,8 +32,8 @@ export function SpecialisedAreas({
   stylesOveride?: string;
 }) {
   return (
-    <section id="services" className="py-20 md:py-28 b g-secondary">
-      <div className="container mx-auto px-4 ">
+    <section id="services" className="py-20 md:py-28 b g-secondary ">
+      <div className="container mx-auto px-4 cursor-pointer">
         <SectionHeader
           isLabelAvl={false}
           label={label || "Our Expertise"}

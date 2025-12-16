@@ -129,7 +129,7 @@ export function DT_SectionHeader({
       {title && (
         <h2
           className={cn(
-            "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl font-bold font-serif text-balance mb-6",
+            "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl text-balance mb-6",
             dark ? "text-white" : "text-primary",
             titleStylesOveride
           )}>

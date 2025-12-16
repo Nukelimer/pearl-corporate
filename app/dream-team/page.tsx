@@ -41,6 +41,26 @@ function page() {
       role: "Corporate Attorney",
       image: "/professional-woman-lawyer-in-business-attire-portr.jpg",
     },
+    {
+      name: "Adbayo Johnson",
+      role: "Senior Partner",
+      image: "/professional-african-lawyer-man-in-suit-portrait.jpg",
+    },
+    {
+      name: "Sarah Williams",
+      role: "Corporate Attorney",
+      image: "/professional-woman-lawyer-in-business-attire-portr.jpg",
+    },
+    {
+      name: "Adbayo Johnson",
+      role: "Senior Partner",
+      image: "/professional-african-lawyer-man-in-suit-portrait.jpg",
+    },
+    {
+      name: "Sarah Williams",
+      role: "Corporate Attorney",
+      image: "/professional-woman-lawyer-in-business-attire-portr.jpg",
+    },
   ];
 
   const practiceAreas = [
@@ -89,16 +109,22 @@ function page() {
   ];
 
   return (
-    <section className="pt-32">
+    <section className="pt-32 md:pt-0">
+      <div className="pt-20 h-20 hidden md:flex"></div>
       <DreamTeamCard
         label="meet the team"
         isLabelAvl={false}
-        title=""
+        title="Meet with the attorneys"
         description="Dedicated to excellence and client sucess, our experienced team brings decades of legal expertise to every case we handle."
-        descriptionStyles="text-black text-sm px-8 mb-16"
+        descriptionStyles="text-black md:text-white md:hidden text-sm px-8 mb-16 md:mb-0 md:my-auto "
+        imgUrl="/about/advising.jpg"
+        imgStyles="w-full md:flex hidden w-full  h-full absolute -z-10 object-cover"
+        className="md:relative md:overflow-clip md:flex md:flex-col md:justify-center md:items-center font-montserrat md:h-full md:py-24 "
+        labelStyles="md:my-auto md:h-full md:self-center  md:text-white! md:capitalize text-2xl "
+        titleStylesOveride="font-monteserrat hidden md:flex uppercase text-xs text-white "
       />
 
-      <div className="">
+      <div className=" md:py-12 md:px-16">
         {lawyersData.map(
           ({
             about,
@@ -131,6 +157,7 @@ function page() {
         practiceAreas={practiceAreas}
         title="We deliver focused, practical legal solutions across key areas that matter most to Nigerian businesses."
         label="Our Practice Areas"
+        titleStyles="md:text-4xl"
         stylesOveride="text-md font-semibold"
       />
 
@@ -140,7 +167,7 @@ function page() {
           label="Why our Expertise Matters"
           labelStyles=""
           title="In today’s fast-paced business environment, having the right legal partner is critical to your success. Here’s how our expertise makes a difference:"
-          titleStylesOveride="text-md px-12"
+          titleStylesOveride="text-md md:font-montserrat  md:font-semibold md:text-2xl! px-12 md:max-w-3xl! md:mx-auto!"
         />
       </div>
       <div className="flex flex-col gap-8">
@@ -189,18 +216,52 @@ function page() {
 
       <div className="">
         <LetDiscuss
-          className="bg-linear-to-l to-[#2B2B2B] from-0% from-[#1E223F] to-60%"
+          className=" font-montserrat! bg-linear-to-l to-[#2B2B2B] from-0% from-[#1E223F] to-60% md:hidden "
           title="Whether you’re looking for ongoing legal support through our retainership plans or need a guidance on a specific matter, we’re here to help."
           label="Ready to get started? "
           isLabelAvl={false}
-          button="Book consultation"
+          button="Book consultation!!!!"
           buttonStyles="w-[90%] bg-accent mb-4"
-          sec_button="Retainership Plan"
-                                  sec_buttonStyles="w-[90%]  bg-transparent  border-2 mb-12"
-                                  labelStyles="text-white/30"
-
-                                  titleStylesOveride="text-white text-xl px-4"
+          sec_button="Contact us"
+          sec_buttonStyles="w-[90%]  bg-transparent  border-2 mb-12 md:border-accent"
+          labelStyles="text-white/30"
+          sec_btnUrl="/contact-us"
+          btnUrl="/contact-us"
+          wrapperFixStyles="max-w-3xl md:mx-auto"
+          titleStylesOveride="text-white text-xl px-4 font-montserrat!"
         />
+
+        <LetDiscuss
+          className=" font-montserrat! bg-linear-to-l to-[#2B2B2B] from-0% from-[#1E223F] to-60% md:flex flex-col hidden "
+          title="Let’s discuss how Pearlaw Corporate can drive your business forward."
+          label="Ready to get started?  "
+          isLabelAvl={false}
+          button="Book consult"
+          buttonStyles="w-[90%] bg-accent mb-4"
+          sec_button="Contact us"
+          sec_buttonStyles="w-[90%]  bg-transparent!  border-2 mb-12 md:mb-4 md:border-accent"
+          labelStyles="text-white/70 mt-12! "
+          wrapperFixStyles="md:max-w-3xl md:mx-auto"
+          sec_btnUrl="/contact-us"
+          btnUrl="/contact-us"
+          titleStylesOveride=" text-xl!  text-white px-4 font-montserrat!"
+        />
+
+        {/* <LetDiscuss
+          label="Ready to get started?"
+          className=" bg-linear-to-l to-[#2B2B2B] from-0% from-[#1E223F] to-60% hidden md:flex  "
+          title="Let’s discuss how Pearlaw Corporate can drive your business forward."
+          isLabelAvl={false}
+          labelStyles="pt-12 text-white"
+          titleStylesOveride="px-0 text-2xl font-montserrat! md:text-xl! px-10! font-bold text-white "
+          button="Book Consultation"
+          sec_btnUrl="/contact-us"
+          btnUrl="/contact-us"
+          sec_button="Contact us"
+          sec_buttonStyles="w-[90%]  text-white  bg-transparent  hover:bg-transparent hover:border border cursor-pointer! mb-12 md:mb-0 md:w-full md:px-48! bg-transparent! md:rounded md:border-accent"
+          buttonStyles="bg-accent hover:bg-transparent hover:border w-[90%]  mt-6 mb-4 md:my-0 font-light cursor-pointer! md:w-full"
+          wrapperFixStyles="max-w-3xl mx-auto"
+        /> */}
       </div>
     </section>
   );

@@ -158,23 +158,23 @@ export function Footer() {
 
       <footer className="bg-[#1E223F] text-white py-22 md:flex hidden">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid md:grid-cols-4  gap-8 mb-8">
             <div>
               <div className="flex flex-col items-start gap-2 mb-4">
-                <div className="rounded-lg flex items-center justify-center  gap-4">
+                <div className="rounded-lg flex items-cente_r justify-c_enter  gap-4">
                   <Image
                     width={50}
                     height={50}
                     priority
                     src="/homepage/logo.svg"
                     alt="img"
-                    className="invert-100 w-12  h-12"
+                    className="invert-100 w-12 -translate-y-3 h-12"
                   />{" "}
                   <h2 className="font-bold">Pearl Corporate</h2>
                 </div>
 
                 <div className="">
-                  <p className="text-xs py-2">
+                  <p className="text-xs py-2 text-white/70">
                     Protecting your right with clarity, <br /> confidence, and
                     experience.
                   </p>
@@ -206,19 +206,21 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-5 mt-4 text-sm">
-              <h4 className="font-bold">Contact Info</h4>
+            <div className="flex flex-col gap-5 mt-4  md:mt-0 text-sm">
+              <h4 className="font-semibold text-[16px]">Contact Info</h4>
               <div className="flex gap-2">
                 <FaWhatsapp size={24} className="text-accent" />
                 <a
                   href="https://wa.me/2348136141666"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-inherit hover:underline">
+                  className="text-white/70 hover:underline">
                   +234 813 614 1666
                 </a>
               </div>
-              <a href="mailto: contact@pearlaw.com" className="flex gap-2">
+              <a
+                href="mailto: contact@pearlaw.com"
+                className="flex gap-2 text-white/70">
                 <Mail className="w-6 h-6 text-accent" />
                 contact@pearlaw.com
               </a>
@@ -226,7 +228,7 @@ export function Footer() {
                 <Phone className="text-accent" />
                 <a
                   href="tel:+2348064305645"
-                  className="text-inherit hover:underline">
+                  className=" text-white/70 hover:underline">
                   +234 806 430 5645
                 </a>
               </div>

@@ -5,6 +5,7 @@ import { cn } from "@/app/lib/utils";
 import { ArrowRight, CheckCircle, Facebook, Instagram } from "lucide-react";
 import { Button } from "../ui/button";
 import { FaTiktok } from "react-icons/fa";
+import Link from "next/link";
 
 interface SectionHeaderProps {
   isLabelAvl?: boolean | string;
@@ -24,6 +25,8 @@ interface SectionHeaderProps {
   buttonStyles?: string;
   sec_button?: string;
   sec_buttonStyles?: string;
+  btnUrl?: string;
+  sec_btnUrl?: string;
 }
 
 export function LetDiscuss({
@@ -39,7 +42,8 @@ export function LetDiscuss({
   buttonStyles,
   wrapperFixStyles,
   v2,
-
+  btnUrl,
+ sec_btnUrl,
   align = "center",
   dark = false,
 }: SectionHeaderProps) {
@@ -112,7 +116,7 @@ export function LetDiscuss({
         {title && (
           <h2
             className={cn(
-              "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl font-bold font-serif text-balance mb-6",
+              "text-______3xl px-16 md:px-0  font-bold  text-balance mb-6",
               dark ? "text-white" : "text-primary",
               titleStylesOveride
             )}>
@@ -120,17 +124,33 @@ export function LetDiscuss({
           </h2>
         )}
 
-        <div className="">
-          {button && (
-            <Button className={buttonStyles} size={"lg"}>
-              {button} <ArrowRight />
-            </Button>
-          )}
-          {sec_button && (
-            <Button className={sec_buttonStyles} size={"lg"}>
-              {sec_button} <ArrowRight />
-            </Button>
-          )}
+        <div className="md:flex  md:mx-auto md:items-center md:w-full ">
+          {button &&
+            (btnUrl ? (
+              <Link href={btnUrl} className="md:w-[65%]">
+                <Button className={buttonStyles} size={"lg"}>
+                  {button} <ArrowRight />
+                </Button>
+              </Link>
+            ) : (
+              <Button className={cn(buttonStyles, "md:w-65%")} size={"lg"}>
+                {button} <ArrowRight />
+              </Button>
+            ))}
+          {sec_button &&
+            (sec_btnUrl ? (
+              <Link href={sec_btnUrl} className="md:w-[35%]">
+                <Button
+                  className={cn(sec_buttonStyles, "md:w-65%")}
+                  size={"lg"}>
+                  {sec_button} <ArrowRight />
+                </Button>
+              </Link>
+            ) : (
+              <Button className={sec_buttonStyles} size={"lg"}>
+                {sec_button} <ArrowRight />
+              </Button>
+            ))}
         </div>
 
         {v2 && <LetDiscussV2 />}
@@ -173,7 +193,7 @@ export function LetDiscuss({
       {title && (
         <h2
           className={cn(
-            "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl font-bold font-serif text-balance mb-6",
+            "text-3xl px-16 md:px-0  font-bold font-se.rif text-balance mb-6",
             dark ? "text-white" : "text-primary",
             titleStylesOveride
           )}>
@@ -181,17 +201,39 @@ export function LetDiscuss({
         </h2>
       )}
 
-      <div className="group-hover:cursor-pointer">
-        {button && (
-          <Button className={cn(buttonStyles, "cursor-pointer")} size={"lg"}>
-            {button} <ArrowRight />
-          </Button>
-        )}
-        {sec_button && (
-          <Button className={cn(sec_buttonStyles, "cursor-pointer")} size={"lg"}>
-            {sec_button} <ArrowRight />
-          </Button>
-        )}
+      <div className="group-hover:cursor-pointer bg-red-40_0 md:flex ">
+        {button &&
+          (btnUrl ? (
+            <Link href={btnUrl} className="md:w-[65%]">
+              <Button
+                className={cn(buttonStyles, "cursor-pointer ")}
+                size={"lg"}>
+                {button} <ArrowRight />
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              className={cn(buttonStyles, "cursor-pointer md:w-[65%]")}
+              size={"lg"}>
+              {button} <ArrowRight />
+            </Button>
+          ))}
+        {sec_button &&
+          (sec_btnUrl ? (
+            <Link href={sec_btnUrl} className="md:w-[35%]">
+              <Button
+                className={cn(sec_buttonStyles, "cursor-pointer")}
+                size={"lg"}>
+                {sec_button} <ArrowRight />
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              className={cn(sec_buttonStyles, "cursor-pointer md:w-[35%]")}
+              size={"lg"}>
+              {sec_button} <ArrowRight />
+            </Button>
+          ))}
       </div>
 
       {v2 && <LetDiscussV2 />}
@@ -201,7 +243,7 @@ export function LetDiscuss({
 
 function LetDiscussV2() {
   return (
-    <div className="flex flex-col items-center gap-4 max-w-md mx-auto pb-6">
+    <div className="flex flex-col  items-center gap-4 max-w-md mx-auto pb-6">
       <div className="flex gap-4">
         <Button
           size="lg"

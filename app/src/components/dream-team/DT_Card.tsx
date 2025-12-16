@@ -121,8 +121,7 @@ export function DreamTeamCard({
       {title && (
         <h2
           className={cn(
-            "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl font-bold font-serif text-balance mb-6",
-            dark ? "text-white" : "text-primary",
+            "text-3xl px-16 md:px-0  font-bold  font-montserrat text-balance mb-6",
             titleStylesOveride
           )}>
           {title}

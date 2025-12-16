@@ -21,10 +21,12 @@ function page() {
         dangerouslySetHTML
         paragraphStyles="text-white px-6 pb-7"
       />
-      <ConversationForm />
-      <ContactDetailsSection />
       <Workspace />
+      <ConversationForm />
       <RetainershipPlans />
+      <div className="md: hidden">
+        <ContactDetailsSection />
+      </div>
     </section>
   );
 }

@@ -27,26 +27,28 @@ function JoinFAQ() {
   ];
 
   return (
-    <div className="w-5/6 max-w-xl mx-auto space-y-4 flex flex-col  p-5  mt-12 ">
+    <div className="w-5/6 max-w-xl md:max-w-4xl mx-auto space-y-4 flex flex-col  p-5  mt-12 ">
       <div className="">
-        <h4 className="max-w-sm text-center text-2xl font-semibold">Frequently asked Questions</h4>
+        <h4 className="max-w-sm md:max-w-full md:mb-6 text-center text-2xl font-semibold md:text-center!">
+          Frequently asked Questions
+        </h4>
       </div>
       <Accordion
         type="single"
         collapsible
         defaultValue="gem"
-        className="space-y-4">
+        className="space-y-4  ">
         {faqAccordionData.map((plan) => (
           <AccordionItem
             key={plan.id}
             value={plan.id}
-            className=" rounded-xl  overflow-hidden">
-            <AccordionTrigger className="px-5 py-4 text-left border ">
+            className=" rounded-xl  overflow-hidden md:pt-6">
+            <AccordionTrigger className="px-5 py-4 text-left border hover:cursor-pointer  hover:no-underline">
               {plan.question}
             </AccordionTrigger>
 
-            <AccordionContent className="border-none p-0">
-              <div className="overflow-clip">
+            <AccordionContent className="border-none p-0 shadow-none">
+              <div className="overflow-clip border-0 ">
                 <div className="px-5 py-4 flex border-0 overflow-hidden">
                   {plan.answer}
                 </div>

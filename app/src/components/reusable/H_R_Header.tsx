@@ -132,7 +132,7 @@ export function H_R_Header({
           <h2
           className={cn(
        
-              "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl font-bold font-serif text-balance mb-6",
+              "text-3xl px-16 md:px-0 md:text-4x.l lg:text-5x.l font-bold  text-balance mb-6",
               dark ? "text-white" : "text-accent",
                      titleStylesOveride,
             )}
@@ -142,7 +142,7 @@ export function H_R_Header({
         ) : (
           <h2
             className={cn(
-              "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl font-bold font-serif text-balance mb-6",
+              "text-3xl px-16 md:px-0 md:text-4xl lg:text-5xl font-bold font-s.erif text-balance mb-6",
               dark ? "text-white" : "text-primary",
               titleStylesOveride
             )}>

@@ -59,7 +59,7 @@ export default function ConversationForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-5/6 max-w-xl mx-auto space-y-4 flex flex-col  border p-5 rounded-md bg-white shadow-2xl mt-8 ">
+      className="w-5/6 max-w-xl md:max-w-5xl mx-auto space-y-4 mb-12 flex flex-col  border p-5 rounded-md bg-white shadow-2xl mt-8 ">
       <h4 className="py-6">Send us a Message.</h4>
       <div className="grid sm:grid-cols-2 gap-6">
         <div className="flex  flex-col gap-4">
