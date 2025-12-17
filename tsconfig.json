@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/src/components/ui/toggle.tsx"  ],
+, "src/app/(frontend)/src/components/ui/toggle.tsx", "xspayload.config.tsdx"  ],
   "exclude": ["node_modules"]
 }
