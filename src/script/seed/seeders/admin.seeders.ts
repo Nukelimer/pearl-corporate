@@ -1,10 +1,10 @@
-import { getPayload } from "payload";
+import { getPayload, Payload } from "payload";
 import config from "../../../app/payload.config";
 import { isPayloadDuplicateUserError } from "../lib/is_payload_duplicate_user_error.";
-import { env } from "@/lib/env";
+import { env } from "@/src/lib/env";
 
-export async function seedAdmin() {
-  const payload = await getPayload({ config });
+export async function seedAdmin(payload: Payload) {
+ 
 
   try {
     const response = await payload.create({

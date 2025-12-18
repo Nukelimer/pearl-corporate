@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "seed": "tsx -r dotenv/config ./src/script/seed/seeders/script.ts"
+    "seed": "tsx -r dotenv/config ./src/script/seed/seeders/script.ts",
+
+    "nuke": "set PGPASSWORD=Remilekun9&& psql -h 127.0.0.1 -U postgres -d pearllaw_next_blog -c \"DROP SCHEMA public CASCADE; CREATE SCHEMA public;\" && npm run payload -- migrate:fresh && npm run seed"
+
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -80,6 +83,7 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",

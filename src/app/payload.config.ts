@@ -11,9 +11,9 @@ import sharp from "sharp";
 
 import { Users } from "../collections/Users/config";
 import { Media } from "../collections/Media/config";
-import { env } from "@/lib/env";
+import { env } from "@/src/lib/env";
 import { Articles } from "../collections/Articles/config";
-import { ArticlesAuthors } from "../collections/Articles/ArticleAuthors";
+import { ArticlesAuthors } from "../collections/ArticlesAuthors/config";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -37,7 +37,7 @@ export default buildConfig({
   }),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
-    outputFile: path.resolve(dirname, "payload-types.ts"),
+    outputFile: path.resolve(dirname, "./payload-types.ts"),
   },
   db: postgresAdapter({
     pool: {

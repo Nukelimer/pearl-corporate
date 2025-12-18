@@ -2,6 +2,7 @@ import { convertLexicalToPlaintext } from "@payloadcms/richtext-lexical/plaintex
 import type { CollectionConfig } from "payload";
 import { generateSlugHook } from "../hooks/generated_slug_hook";
 import { generateContentSummaryHook } from "../hooks/generate_content_summary_hook";
+import { STATUS_OPTIONS } from "./constants";
 
 export const Articles: CollectionConfig = {
   slug: "articles",
@@ -49,12 +50,11 @@ export const Articles: CollectionConfig = {
         afterRead: [
           ({ data }) => {
             const text = convertLexicalToPlaintext({
-              data: data?.content || "",
+              data: data?.content,
             });
             const wordsPerMinute = 200;
             const words = text.trim().split(/\s+/).length;
-
-            return Math.ceil(words / wordsPerMinute);
+            return Math.max(1, Math.ceil(words / wordsPerMinute));
           },
         ],
       },
@@ -76,8 +76,8 @@ export const Articles: CollectionConfig = {
     {
       name: "status",
       type: "select",
-      options: ["Draft", "Published"],
-      defaultValue: "Draft",
+      options: Object.values(STATUS_OPTIONS),
+      defaultValue: STATUS_OPTIONS.DRAFT,
       required: true,
     },
     {
@@ -85,12 +85,9 @@ export const Articles: CollectionConfig = {
       type: "date",
       required: true,
       admin: {
-        condition: (data) => data.status === "Published",
-        
+        condition: (data) => data?.status === STATUS_OPTIONS.PUBLISHED,
         date: {
-          displayFormat: "DD/MM/YYYY",
           pickerAppearance: "dayAndTime",
-
         },
       },
     },

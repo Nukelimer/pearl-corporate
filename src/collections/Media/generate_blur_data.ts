@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 
 export function isEligibleForBlurDataURL(mime?: string | null) {
   if (!mime?.startsWith("image/")) return false;
-  if (mime === "image/gif" || mime === "image/svg+xml") return false;
+  if (mime === "image/svg+xml") return false;
   return true;
 }
 

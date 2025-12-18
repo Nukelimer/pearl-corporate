@@ -1,7 +1,9 @@
 import { CollectionConfig } from "payload";
+import { ARTICLE_AUTHOR_ROLE_OPTIONS } from "./constants";
 
 export const ArticlesAuthors: CollectionConfig = {
   slug: "article-authors",
+  admin:{useAsTitle: "name"},
   fields: [
     {
       name: "name",
@@ -20,15 +22,8 @@ export const ArticlesAuthors: CollectionConfig = {
     {
       name: "role",
       type: "select",
-      options: [
-        "Managing Partner",
-        "Associate",
-        "Trainee",
-        "NYSC Intern",
-        "Guest Writer",
-      ],
-      defaultValue: "NYSC Intern",
-
+      options: Object.values(ARTICLE_AUTHOR_ROLE_OPTIONS),
+      defaultValue: ARTICLE_AUTHOR_ROLE_OPTIONS.NYSC_INTERN ,
       required: true,
     },
   ],
