@@ -5,12 +5,14 @@ import { relationIsObject } from "@/src/lib/relation-to-object";
 import { RichText } from "../../src/components/blog/rich-text";
 import { Button } from "../../src/components/ui/button";
 import { Abt_SectionHeader } from "../../src/components/about/Abt_SectionHeader";
+export const dynamicParams = true;
 
 export default async function BlogPostPage({
+
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+  }) {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
 
