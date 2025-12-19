@@ -7,6 +7,7 @@ import { relationIsObject } from "@/src/lib/relation-to-object";
 export default function ArticleList({
   initialArticles,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   initialArticles: any[];
 }) {
   const [visibleCount, setVisibleCount] = useState(5);
@@ -16,8 +17,6 @@ export default function ArticleList({
   };
 
   const visibleArticles = initialArticles.slice(0, visibleCount);
-
-
 
   return (
     <>

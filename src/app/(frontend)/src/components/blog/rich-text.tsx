@@ -35,7 +35,7 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
     const { value: media } = node;
 
     if (!media || typeof media !== "object") return null;
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const mediaTyped = media as any;
 
     return (
