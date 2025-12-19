@@ -1,4 +1,4 @@
-import { cloudinaryStorage } from 'payload-cloudinary';
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 // storage-adapter-import-placeholder
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import {
@@ -48,17 +48,12 @@ export default buildConfig({
   }),
   sharp,
   plugins: [
-    // storage-adapter-placeholder
-
-    cloudinaryStorage({
-      config: {
-        cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "",
-        api_key: process.env.CLOUDINARY_API_KEY || "",
-        api_secret: process.env.CLOUDINARY_API_SECRET || "",
-      },
+    vercelBlobStorage({
+      enabled: true,
       collections: {
-        media: true, // This enables Cloudinary for your 'media' collection
+        media: true, 
       },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
     }),
   ],
 });
