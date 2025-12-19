@@ -11,7 +11,7 @@ export function Hero() {
    const loadGsap = async () => {
      const gsap = (await import("gsap")).default;
 
-     let ctx = gsap.context(() => {
+     const ctx = gsap.context(() => {
        const tl = gsap.timeline();
 
        tl.fromTo(
