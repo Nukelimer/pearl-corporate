@@ -1,3 +1,4 @@
+import { cloudinaryStorage } from 'payload-cloudinary';
 // storage-adapter-import-placeholder
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import {
@@ -48,5 +49,16 @@ export default buildConfig({
   sharp,
   plugins: [
     // storage-adapter-placeholder
+
+    cloudinaryStorage({
+      config: {
+        cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "",
+        api_key: process.env.CLOUDINARY_API_KEY || "",
+        api_secret: process.env.CLOUDINARY_API_SECRET || "",
+      },
+      collections: {
+        media: true, // This enables Cloudinary for your 'media' collection
+      },
+    }),
   ],
 });
