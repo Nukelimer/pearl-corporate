@@ -38,7 +38,7 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ",
         "bg-white/95 backdrop-blur-sm shadow-sm"
       )}>
-      <div className="container xl:justify-between mx-auto px-4 my-2">
+      <div className="lg:containcer xl:justify-between mx-auto px-4 my-2">
         <div className="flex items-center justify-between h-16 ">
           <Link href="/" className="flex items-center gap-2">
             <div className="  flex items-center justify-center p-2 gap-5">
@@ -54,7 +54,7 @@ export function Header() {
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8 text-nowrap ">
+          <nav className="hidden lg:flex items-center gap-8 text-nowrap ">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -75,11 +75,11 @@ export function Header() {
 
           <Button
             size="sm"
-            className="bg-accent hidden md:flex text-light! hover:bg-accent/90 text-white font-light text-xs">
+            className="bg-accent hidden lg:flex text-light! hover:bg-accent/90 text-white font-light text-xs">
             Get In Touch
           </Button>
 
-          <div className=" flex md:hidden items-center gap-4 text-xs">
+          <div className=" flex lg:hidden items-center gap-4 text-xs">
             <Button className="bg-[#C84E26] " size={"sm"}>
               Get in touch
             </Button>
@@ -98,7 +98,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white border-t border-border py-4">
+          <div className="lg:hidden bg-white border-t border-border py-4">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link

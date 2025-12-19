@@ -37,7 +37,7 @@ export const Articles: CollectionConfig = {
       },
     },
     {
-      name: "readTimeInMinutes ",
+      name: "readTimeInMinutes",
       type: "text",
       defaultValue: 0,
       hooks: {
@@ -72,7 +72,13 @@ export const Articles: CollectionConfig = {
       relationTo: "article-authors",
       required: true,
     },
-
+{
+  name: 'tags',
+  type: 'relationship',
+  relationTo: 'article-tags',
+  hasMany: true,
+}
+,
     {
       name: "status",
       type: "select",

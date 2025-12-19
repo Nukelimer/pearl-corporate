@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     articles: Article;
+    'article-tags': ArticleTag;
     'article-authors': ArticleAuthor;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -81,6 +82,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
+    'article-tags': ArticleTagsSelect<false> | ArticleTagsSelect<true>;
     'article-authors': ArticleAuthorsSelect<false> | ArticleAuthorsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -188,9 +190,10 @@ export interface Article {
     [k: string]: unknown;
   };
   contentSummary: string;
-  'readTimeInMinutes '?: string | null;
+  readTimeInMinutes?: string | null;
   coverImage: number | Media;
   author: number | ArticleAuthor;
+  tags?: (number | ArticleTag)[] | null;
   status: 'Draft' | 'Published';
   publishedAt?: string | null;
   updatedAt: string;
@@ -205,6 +208,17 @@ export interface ArticleAuthor {
   name: string;
   avatar: number | Media;
   role: 'Managing Partner' | 'Associate' | 'Trainee' | 'NYSC Intern' | 'Guest Writer';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "article-tags".
+ */
+export interface ArticleTag {
+  id: number;
+  name: string;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -243,6 +257,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'articles';
         value: number | Article;
+      } | null)
+    | ({
+        relationTo: 'article-tags';
+        value: number | ArticleTag;
       } | null)
     | ({
         relationTo: 'article-authors';
@@ -340,11 +358,22 @@ export interface ArticlesSelect<T extends boolean = true> {
   slug?: T;
   content?: T;
   contentSummary?: T;
-  'readTimeInMinutes '?: T;
+  readTimeInMinutes?: T;
   coverImage?: T;
   author?: T;
+  tags?: T;
   status?: T;
   publishedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "article-tags_select".
+ */
+export interface ArticleTagsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }

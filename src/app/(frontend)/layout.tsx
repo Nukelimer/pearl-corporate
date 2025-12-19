@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${montserrat.variable} font-sans antialiased`}>
+        className={`${inter.variable} ${montserrat.variable}  font-sans antialiased`}>
         <Header />
         <Toaster />
         {children}

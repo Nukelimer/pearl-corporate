@@ -14,6 +14,7 @@ import { Media } from "../collections/Media/config";
 import { env } from "@/src/lib/env";
 import { Articles } from "../collections/Articles/config";
 import { ArticlesAuthors } from "../collections/ArticlesAuthors/config";
+import { ArticleTags } from "../collections/ArticleTags/configs";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -29,7 +30,7 @@ export default buildConfig({
       password: env.CMS_SEED_ADMIN_PASSWORD,
     },
   },
-  collections: [Users, Media, Articles, ArticlesAuthors],
+  collections: [Users, Media, Articles, ArticleTags, ArticlesAuthors],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => {
       return [...defaultFeatures, FixedToolbarFeature()];
