@@ -4,7 +4,8 @@ import {
   editorConfigFactory,
 } from "@payloadcms/richtext-lexical";
 import { Payload } from "payload";
-import config from "../../../app/payload.config";
+import config from "../../../payload.config";
+
 
 import { createMediaFromImageUrl } from "../lib/create-media-from-image-url";
 import { slugify } from "payload/shared";

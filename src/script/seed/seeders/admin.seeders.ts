@@ -1,5 +1,4 @@
 import { getPayload, Payload } from "payload";
-import config from "../../../app/payload.config";
 import { isPayloadDuplicateUserError } from "../lib/is_payload_duplicate_user_error.";
 import { env } from "@/src/lib/env";
 
