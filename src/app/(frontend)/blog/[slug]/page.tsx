@@ -9,10 +9,10 @@ import { relationIsObject } from "@/src/lib/relation-to-object";
 import { RichText } from "../../src/components/blog/rich-text";
 import { Button } from "../../src/components/ui/button";
 import { Abt_SectionHeader } from "../../src/components/about/Abt_SectionHeader";
-import See_More_Blog_Card from "../../src/components/blog/See_MoreBlog_Card";
 import Link from "next/link";
 import SeeMoreArticleList from "../../src/components/blog/SeeMoreArticlesList";
-import { PracticeAreas } from "../page";
+import { PracticeAreas } from "../../src/components/blog/P_Area";
+
 export const dynamicParams = true;
 
 export default async function BlogPostPage({

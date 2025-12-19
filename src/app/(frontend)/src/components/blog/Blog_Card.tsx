@@ -23,14 +23,12 @@ function Blog_Card({
   summary,
   coverImage,
   publishedAt,
-  
+
   readTimeInMinutes,
   author,
 }: BlogArticleCardProps) {
-
-
   console.log("BFsjdddddd", coverImage.url);
-  
+
   return (
     <div className={cn("w-full flex flex-col  my-12 ")}>
       <div className="bg-white shadow rounded-2xl! overflow-hidden pb-8">
@@ -53,10 +51,11 @@ function Blog_Card({
         </p>
 
         <div className="py-4 px-4 text-2xl font-light flex gap-x-6">
-
-          <ArticleMetadata   intent="card"
-                        data={{ author, publishedAt,  readTimeInMinutes }}
-                        className="mt-auto"/>
+          <ArticleMetadata
+            intent="card"
+            data={{ author, publishedAt, readTimeInMinutes }}
+            className="mt-auto"
+          />
           {/* <span>{ publishedAt}</span> <span>Remi Egwuda</span> */}
         </div>
 
