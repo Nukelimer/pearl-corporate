@@ -130,18 +130,20 @@ function page() {
         labelStyles="pt-12 text-white"
         titleStylesOveride="px-0 text-2xl font-montserrat! md:text-xl! px-10! font-bold text-white "
         button="Book Consultation"
-        buttonStyles="bg-accent  w-[90%]  mt-6 mb-16 font-light cursor-pointer!"
+        btnUrl="/contact"
+        buttonStyles="bg-accent  w-[90%]  mt-6 mb-16 font-light cursor-pointer! md:translate-x-1/4"
         wrapperFixStyles="max-w-3xl mx-auto"
       />
 
       <LetDiscuss
         label="LET DISCUSS YOUR LEGAL STRATEGY?"
-        className="font-montserrat! bg-linear-to-l to-[#2B2B2B] from-0% from-[#1E223F] to-60% md:hidden"
+        className="font-montserrat! bg-linear-to-l to-[#2B2B2B] from-0% from-[#1E223F] to-60% md:hidden "
         title="Let’s discuss how Pearlaw Corporate can drive your business forward."
         isLabelAvl={false}
         labelStyles="pt-12 text-white"
         titleStylesOveride="px-0 text-2xl  font-montserrat!  text-white "
         button="Book Consultattion"
+        btnUrl="/contact"
         buttonStyles="bg-accent  w-[90%]  mt-6 mb-16 font-light"
       />
     </section>

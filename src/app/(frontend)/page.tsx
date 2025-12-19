@@ -1,5 +1,6 @@
 
 import { About } from "./src/components/sections/about";
+import ArticlesListShowCase from "./src/components/sections/ArticlesListShowCase";
 import TestimonialsCarousel from "./src/components/sections/Carousel";
 import { Contact } from "./src/components/sections/contact";
 import { CTA } from "./src/components/sections/cta";
@@ -77,6 +78,8 @@ export default function Home() {
       />
 
       {/* ADD BLOOG */}
+
+      <ArticlesListShowCase/>
     
       <CTA />
 

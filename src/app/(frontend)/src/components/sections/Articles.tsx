@@ -1,27 +1,25 @@
 "use client"; 
 
-import { useState } from "react";
-import Blog_Card from "./Blog_Card";
+;
 import { relationIsObject } from "@/src/lib/relation-to-object";
+import See_More_Blog_Card from "../blog/See_MoreBlog_Card";
+import Blog_Card from "./BlogCard";
 
-export default function ArticleList({
+export default function Articles({
   initialArticles,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   initialArticles: any[];
 }) {
-  const [visibleCount, setVisibleCount] = useState(5);
-
-  const showMore = () => {
-    setVisibleCount((prev) => prev + 5);
-  };
-
-  const visibleArticles = initialArticles.slice(0, visibleCount);
-
+  
+  
+  
+  
+  const visibleArticles = initialArticles.slice(0, 3);
 
   return (
     <>
-      <div className="lg:w-full lg:border__-4">
+      <div className="flex gap-8">
         {visibleArticles.map(
           ({
             id,
@@ -64,15 +62,6 @@ export default function ArticleList({
         )}
       </div>
 
-      {visibleCount < initialArticles.length && (
-        <div className="flex justify-center my-10">
-          <button
-            onClick={showMore}
-            className="px-6 py-3 bg-accent text-sm text-white rounded-md hover:opacity-90 transition-all">
-            Show Older Articles
-          </button>
-        </div>
-      )}
     </>
   );
 }

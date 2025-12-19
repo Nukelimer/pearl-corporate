@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { SectionHeader } from "../ui/section-header"
 import { Button } from "../ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 export function About() {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -36,7 +37,10 @@ export function About() {
   }, [])
 
   return (
-    <section id="about" ref={ref} className="py-20 md:py-14 md:pb-0 bg-background">
+    <section
+      id="about"
+      ref={ref}
+      className="py-20 md:py-14 md:pb-0 bg-background">
       <div className="container mx-auto px-4">
         <div className="about-content space-y-6">
           <SectionHeader
@@ -53,15 +57,21 @@ export function About() {
 
           <div className=" flex gap-4 justify-center md:relative flex-col sm:flex-row ">
             <div className="hidden md:flex h-px bg-black/10 w-full absolute"></div>
-            <Button
-              size={"lg"}
-              className="bg-linear-to-r from-accent from-60% to-orange-900 py-6! md:mt-6! ">
-              Book Consultation <ArrowRight />
-            </Button>
 
-            <Button className="bg-linear-to-r text-black from-neutral-300 from-60% md:mt-6! to-white/95 py-6! ">
-              Explore Services
-            </Button>
+            <Link href={"/contact-us"} className="cursor-pointer">
+              <Button
+                size={"lg"}
+                className="bg-linear-to-r from-accent from-60% to-orange-900 py-6! md:mt-6! ">
+                Book Consultation <ArrowRight />
+              </Button>
+            </Link>
+
+            <Link href={"/about"} className="
+            cursor-pointer">
+              <Button className="bg-linear-to-r text-black from-neutral-300 from-60% md:mt-6! to-white/95 py-6! cursor-pointer ">
+                Explore Services
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

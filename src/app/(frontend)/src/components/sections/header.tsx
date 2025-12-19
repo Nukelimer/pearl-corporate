@@ -72,17 +72,21 @@ export function Header() {
               );
             })}
           </nav>
-
+          <Link href={"/contact-us"}>
           <Button
             size="sm"
-            className="bg-accent hidden lg:flex text-light! hover:bg-accent/90 text-white font-light text-xs">
+            className="bg-accent hidden lg:flex text-light! hover:bg-accent/90 text-white font-light text-xs cursor-pointer">
             Get In Touch
           </Button>
+          
+          </Link>
 
           <div className=" flex lg:hidden items-center gap-4 text-xs">
-            <Button className="bg-[#C84E26] " size={"sm"}>
-              Get in touch
-            </Button>
+            <Link href={"/contact-us"}>
+              <Button className="bg-[#C84E26] cursor-pointer " size={"sm"}>
+                Get in touch
+              </Button>
+            </Link>
             <button
               className="md:hidden p-2"
               onClick={() => setIsOpen(!isOpen)}

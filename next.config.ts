@@ -8,6 +8,9 @@ import withPlaiceholder from "@plaiceholder/next";
  */
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
+  experimental: {
+    globalNotFound: true,
+  },
   images: {
     remotePatterns: [
       {

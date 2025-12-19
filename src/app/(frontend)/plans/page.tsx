@@ -1,12 +1,11 @@
-
 import { H_R_Header } from "../src/components/reusable/H_R_Header";
 import Pricing from "../src/components/pricing/PricingCards";
 import { Button } from "../src/components/ui/button";
 import { Calendar1 } from "lucide-react";
+import Link from "next/link";
+
 
 export default function page() {
-  
-
   return (
     <div className="font-montserrat! md:relative">
       <H_R_Header
@@ -34,12 +33,14 @@ export default function page() {
               we’ll help you choose the best option for your businesses
             </p>
 
-            <Button
-              variant={"ghost"}
-              size={"lg"}
-              className="border w-[80%] md:bg-gray-300/30 mx-auto border-black  ">
-              <Calendar1 /> Book Free Consultation
-            </Button>
+            <Link href={"/contact-us"} className="cursor-pointer">
+              <Button
+                variant={"ghost"}
+                size={"lg"}
+                className="border w-[80%] md:w-[100%] md:bg-gray-300/30 mx-auto border-black  ">
+                <Calendar1 /> Book Free Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

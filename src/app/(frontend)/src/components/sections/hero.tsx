@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -80,12 +81,17 @@ export function Hero() {
           </p>
 
           <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center">
+
+            <Link href={"/contact-us"}>
             <Button
               size="lg"
-              className="bg-accent hover:bg-accent/90 w-fit mx-auto text-white gap-2">
+              className="bg-accent hover:bg-accent/90 w-fit mx-auto text-white gap-2 cursor-pointer">
               Book now
               <ArrowRight className="w-4 h-4" />
             </Button>
+            
+            
+            </Link>
           </div>
         </div>
       </div>

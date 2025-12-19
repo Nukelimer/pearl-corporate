@@ -39,7 +39,7 @@ function Blog_Card({
           alt={`Blog Image ${title}`}
           width={500}
           height={500}
-          className="w-full brightness-80 min-h-[300px] h-full max-h-[300px] object-cover "
+          className="w-full brightness-80 min-h-75 h-full max-h-75 object-cover "
           blurDataURL={coverImage?.blurDataUrl ?? ""}
         />
         <h3 className=" text-2xl py-4 px-4 font-semibold font-montserrat">
@@ -62,7 +62,7 @@ function Blog_Card({
 
         <Button
           size={"lg"}
-          className="bg-accent py-3 px-12 text-sm   h-full mx-4 ">
+          className="bg-accent py-3 px-12 text-sm   h-full mx-4 mt-8 ">
           <Link href={href} className="">
             Read More
           </Link>

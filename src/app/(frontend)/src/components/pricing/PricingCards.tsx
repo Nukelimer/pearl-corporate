@@ -134,7 +134,7 @@ function PricingCardContent({ plan }: { plan: PricingProps }) {
   return (
     <div className="md:bg-white relative md:items-stretch md:h-full flex flex-col item-center mx-auto border rounded-md mt-12 p-6 pb-8 md:text-xs">
       {plan.popular && (
-        <div className=" w-full flex justify-center item-center absolute -top-4">
+        <div className=" w-full flex justify-center item-center absolute -top-4 -left-1">
           <span className=" bg-black md:bg-accent text-white px-4 py-2   mx-auto z-50 rounded-full text-sm ">
             Most Popular
           </span>

@@ -183,7 +183,7 @@ function page() {
         labelStyles="pt-12 text-white"
         titleStylesOveride="px-0 text-2xl font-montserrat! md:text-xl! px-10! font-bold text-white "
         button="Book Consultation"
-        buttonStyles="bg-accent  w-[90%]  mt-6 mb-16 font-light cursor-pointer!"
+        buttonStyles="bg-accent  w-[40%]  mt-6 mb-16 font-light cursor-pointer! translate-x-3/4"
         wrapperFixStyles="max-w-3xl mx-auto"
       />
 

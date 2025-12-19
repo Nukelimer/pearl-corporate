@@ -53,3 +53,15 @@ export async function getArticleBySlug(slug: string) {
     return null;
   }
 }
+
+
+export async function getRandomPublishedArticle(excludeSlug: string) {
+  const articles = await getPublishedArticles();
+
+  const filtered = articles.filter((article) => article.slug !== excludeSlug);
+
+  if (!filtered.length) return null;
+
+  const randomIndex = Math.floor(Math.random() * filtered.length);
+  return filtered[randomIndex];
+}

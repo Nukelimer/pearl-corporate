@@ -159,7 +159,7 @@
 
 
     & img {
-      @apply w-full h-auto  object-cover;
+      @apply w-full h-auto pt-6  object-cover;
     }
 
     & input {@apply pl-0}
