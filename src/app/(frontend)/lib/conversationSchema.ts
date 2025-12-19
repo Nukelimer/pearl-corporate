@@ -11,7 +11,7 @@ export const conversationSchema = z.object({
     .string()
     .min(10, "Brief of Enquiry must be at least 10 characters"),
   availability: z.object({
-    day: z.date({ required_error: "Select a day" }),
+    day: z.date("Select a day"),
     time: z.string().min(1, "Select a time slot"),
   }),
 });
