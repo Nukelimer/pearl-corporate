@@ -55,7 +55,7 @@ export function About() {
             descriptionStyles="md:text-sm"
           />
 
-          <div className=" flex gap-4 justify-center md:relative flex-col sm:flex-row ">
+          <div className=" flex gap-4 justify-center md:relative flex-row ">
             <div className="hidden md:flex h-px bg-black/10 w-full absolute"></div>
 
             <Link href={"/contact-us"} className="cursor-pointer">

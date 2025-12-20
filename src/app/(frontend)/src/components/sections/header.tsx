@@ -88,7 +88,7 @@ export function Header() {
               </Button>
             </Link>
             <button
-              className="md:hidden p-2"
+              className="lg:hidden p-2 cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu">
               {isOpen ? (

@@ -2,11 +2,11 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import "../app/(frontend)/globals.css";
-import { Toaster } from "./(frontend)/src/components/ui/toaster";
-import { Footer } from "./(frontend)/src/components/sections/footer";
-import { Header } from "./(frontend)/src/components/sections/header";
-import { montserrat } from "./(frontend)/fonts/fonts";
+import "./globals.css";
+import { Toaster } from "./src/components/ui/toaster";
+import { Footer } from "./src/components/sections/footer";
+import { Header } from "./src/components/sections/header";
+import { montserrat } from "./fonts/fonts";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
