@@ -19,6 +19,7 @@
   --accent: #C84E26;
   --color-accent:#C84E26;
   --accent-foreground: #ffffff;
+  --link: #C84E26;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: #e5ddd3;
@@ -53,8 +54,13 @@
   --secondary-foreground: #faf9f6;
   --muted: #3d2314;
   --muted-foreground: #a89585;
-  --accent: #c45c2c;
+  /* Only /blog uses .dark (see components/blog/blog-theme.ts).
+     #c84e26 keeps white button text at 4.6:1. Accent text on the dark
+     background only reaches 4.0:1, so links use --link (7.0:1 on the
+     background, 5.8:1 on cards and code). */
+  --accent: #c84e26;
   --accent-foreground: #ffffff;
+  --link: #e8875f;
   --border: #4d3d2d;
   --input: #4d3d2d;
   --ring: #c45c2c;
@@ -90,6 +96,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-link: var(--link);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -126,8 +133,8 @@
 
 
     & a {
-      @apply text-accent cursor-pointer underline underline-offset-4 
-             transition-colors duration-200 hover:opacity-80;
+      @apply text-accent cursor-pointer underline underline-offset-4
+             transition-colors duration-200 hover:opacity-80 dark:text-link;
       
 
       display: inline-block;
@@ -138,7 +145,7 @@
        @apply no-underline bg-accent text-white px-4 py-2 rounded-md hover:underline;
     }
   
-    @apply leading-7 text-black;
+    @apply leading-7 text-black dark:text-foreground;
     
     & h1, & h2, & h3 {
       @apply  font-bold mt-10 mb-4 font-montserrat px-4;
@@ -151,10 +158,10 @@
     & span {@apply px-4}
 
     & pre {
-      @apply bg-zinc-900 border border-zinc-800 p-4  overflow-x-auto my-6;
+      @apply bg-zinc-900 border border-zinc-800 p-4  overflow-x-auto my-6 dark:border-zinc-700;
     }
     & code {
-      @apply font-mono text-sm bg-zinc-800 px-1.5 py-0.5 rounded text-accent;
+      @apply font-mono text-sm bg-zinc-800 px-1.5 py-0.5 rounded text-accent dark:text-link;
     }
 
 

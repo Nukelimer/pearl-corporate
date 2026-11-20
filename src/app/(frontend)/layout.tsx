@@ -7,6 +7,7 @@ import { Toaster } from "./src/components/ui/toaster";
 import { Footer } from "./src/components/sections/footer";
 import { Header } from "./src/components/sections/header";
 import { montserrat } from "./fonts/fonts";
+import { blogThemeScript } from "./src/components/blog/blog-theme";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -23,7 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning: blogThemeScript sets class and style on <html>
+    // before React hydrates, on /blog routes only.
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: blogThemeScript }} />
+      </head>
       <body
         className={`${inter.variable} ${montserrat.variable}  font-sans antialiased`}>
         <Header />
