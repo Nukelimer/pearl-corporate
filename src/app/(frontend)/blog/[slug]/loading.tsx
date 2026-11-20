@@ -8,6 +8,6 @@ export default function BlogPostPageLoading() {
 
 export function ArticleCardSkeletonMain() {
   return (
-    <span className="block rounded-md min-h-screen -z-10 h-[350px] animate-pulse bg-accent/60" />
+    <span className="block rounded-md min-h-screen -z-10 h-[350px] animate-pulse bg-accent/60 dark:bg-muted" />
   );
 }

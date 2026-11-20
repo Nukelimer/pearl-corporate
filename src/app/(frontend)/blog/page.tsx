@@ -34,7 +34,7 @@ async function page() {
           </p>
 
           <Link href={"/"} className="mx-auto mt-14 ">
-            <Button className="bg-accent cursor-pointer"> Go Back Home</Button>
+            <Button className="bg-accent cursor-pointer dark:text-white dark:hover:bg-accent/90"> Go Back Home</Button>
           </Link>
         </div>
       </div>

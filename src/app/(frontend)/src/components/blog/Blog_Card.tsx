@@ -31,7 +31,7 @@ function Blog_Card({
 
   return (
     <div className={cn("w-full flex flex-col  my-12 ")}>
-      <div className="bg-white shadow rounded-2xl! overflow-hidden pb-8">
+      <div className="bg-white shadow rounded-2xl! overflow-hidden pb-8 dark:bg-card dark:shadow-none dark:ring-1 dark:ring-border">
         <Image
           src={coverImage?.url ?? ""}
           alt={`Blog Image ${title}`}
@@ -61,7 +61,7 @@ function Blog_Card({
 
         <Button
           size={"lg"}
-          className="bg-accent py-3 px-12 text-sm   h-full mx-4 mt-8 ">
+          className="bg-accent py-3 px-12 text-sm   h-full mx-4 mt-8 dark:text-white dark:hover:bg-accent/90">
           <Link href={href} className="">
             Read More
           </Link>

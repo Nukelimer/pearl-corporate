@@ -6,6 +6,8 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "@/src/app/(frontend)/lib/utils";
 import { usePathname } from "next/navigation";
+import { BlogThemeToggle } from "../blog/BlogThemeToggle";
+import { isBlogPath } from "../blog/blog-theme";
 const navLinks = [
   { name: "Experience plc", href: "/experience" },
   { name: "About", href: "/about" },
@@ -31,12 +33,15 @@ export function Header() {
   // }, []);
 
   const pathname = usePathname();
+  // Dark mode exists on /blog only, so the toggle shows there only.
+  const showThemeToggle = isBlogPath(pathname);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ",
-        "bg-white/95 backdrop-blur-sm shadow-sm"
+        "bg-white/95 backdrop-blur-sm shadow-sm",
+        "dark:bg-background/95 dark:shadow-none dark:border-b dark:border-border"
       )}>
       <div className="lg:containcer xl:justify-between mx-auto px-4 my-2">
         <div className="flex items-center justify-between h-16 ">
@@ -45,10 +50,10 @@ export function Header() {
               <img
                 src="/homepage/logo.svg"
                 alt="logo"
-                className="size-8 md:size-14"
+                className="size-8 md:size-14 dark:invert"
               />
 
-              <h1 className="capitalize font-medium text-sm md:text-black lg:flex hidden">
+              <h1 className="capitalize font-medium text-sm md:text-black lg:flex hidden dark:text-foreground">
                 Pearlaw Corporate
               </h1>
             </div>
@@ -64,13 +69,14 @@ export function Header() {
                   className={cn(
                     "text-xs font-medium font-montserrat transition-colors px-3 py-1",
                     isActive
-                      ? "font-bold text-accent text-sm "
-                      : "text-muted-foreground hover:text-primary hover:border-b-2 hover:border-b-black border-b border-transparent"
+                      ? "font-bold text-accent text-sm dark:text-link"
+                      : "text-muted-foreground hover:text-primary hover:border-b-2 hover:border-b-black border-b border-transparent dark:hover:border-b-foreground"
                   )}>
                   {link.name}
                 </Link>
               );
             })}
+            {showThemeToggle && <BlogThemeToggle />}
           </nav>
           <Link href={"/contact-us"}>
           <Button
@@ -82,8 +88,11 @@ export function Header() {
           </Link>
 
           <div className=" flex lg:hidden items-center gap-4 text-xs">
+            {showThemeToggle && <BlogThemeToggle />}
             <Link href={"/contact-us"}>
-              <Button className="bg-[#C84E26] cursor-pointer " size={"sm"}>
+              <Button
+                className="bg-[#C84E26] cursor-pointer dark:text-white dark:hover:bg-[#C84E26]/90"
+                size={"sm"}>
                 Get in touch
               </Button>
             </Link>
@@ -102,7 +111,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden bg-white border-t border-border py-4">
+          <div className="lg:hidden bg-white border-t border-border py-4 dark:bg-background">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
