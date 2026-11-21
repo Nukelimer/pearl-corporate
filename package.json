@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "tsx --tsconfig tsconfig.test.json --test \"src/**/*.test.mjs\"",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "seed": "tsx -r dotenv/config ./src/script/seed/seeders/script.ts",
     "nuke": "set PGPASSWORD=Remilekun9&& psql -h 127.0.0.1 -U postgres -d pearllaw_next_blog -c \"DROP SCHEMA public CASCADE; CREATE SCHEMA public;\" && npm run payload -- migrate:fresh && npm run seed",
