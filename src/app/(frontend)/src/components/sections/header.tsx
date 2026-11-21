@@ -6,7 +6,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "@/src/app/(frontend)/lib/utils";
 import { usePathname } from "next/navigation";
-import { BlogThemeToggle } from "../blog/BlogThemeToggle";
+import { BlogThemeController, BlogThemeToggle } from "../blog/BlogThemeToggle";
 import { isBlogPath } from "../blog/blog-theme";
 const navLinks = [
   { name: "Experience plc", href: "/experience" },
@@ -43,6 +43,7 @@ export function Header() {
         "bg-white/95 backdrop-blur-sm shadow-sm",
         "dark:bg-background/95 dark:shadow-none dark:border-b dark:border-border"
       )}>
+      <BlogThemeController active={showThemeToggle} />
       <div className="lg:containcer xl:justify-between mx-auto px-4 my-2">
         <div className="flex items-center justify-between h-16 ">
           <Link href="/" className="flex items-center gap-2">

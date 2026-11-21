@@ -11,19 +11,22 @@ import {
   watchSystemTheme,
 } from "./blog-theme";
 
-// Mounted by blog/layout.tsx. Applies the theme when a reader navigates into
-// /blog and removes it when they navigate out, both before the browser paints.
-export function BlogThemeController() {
+// Rendered by the Header, which every page has, the 404 page included. A blog
+// layout would not do: notFound() in blog/[slug] renders the root not-found
+// page without it, and the dark class would then stay on for the next route.
+// `active` is true on /blog paths. The theme is applied when it turns true and
+// removed when it turns false, both before the browser paints.
+export function BlogThemeController({ active }: { active: boolean }) {
   useLayoutEffect(() => {
+    if (!active) {
+      applyBlogTheme(null);
+      return;
+    }
     applyBlogTheme(getBlogTheme());
-    const stopWatching = watchSystemTheme(() => {
+    return watchSystemTheme(() => {
       if (!getSavedBlogTheme()) applyBlogTheme(getBlogTheme());
     });
-    return () => {
-      stopWatching();
-      applyBlogTheme(null);
-    };
-  }, []);
+  }, [active]);
 
   return null;
 }
