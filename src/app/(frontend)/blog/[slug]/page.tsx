@@ -42,7 +42,7 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="prose lg:prose-lg dark:prose-invert mt-20  mb-0! h-full  lg:px-0 bg-neutral-200">
+    <div className="prose lg:prose-lg dark:prose-invert mt-20  mb-0! h-full  lg:px-0 bg-neutral-200 dark:bg-background">
       <span className="mt-14"></span>
 
       <div className="relative flex justify-center items-center flex-col h-full min-h-48 ">
@@ -61,7 +61,7 @@ export default async function BlogPostPage({
       </div>
 
       <div className=" lg:flex lg:max-w-6xl lg:mx-auto lg:gap-x-6 px-5 mt-8   ">
-        <div className="bg-white rounded-b-2xl lg:mt-18 rounded-t-2xl pt-6 mb-6 first-letter:text-2xl first-letter:pl-3">
+        <div className="bg-white rounded-b-2xl lg:mt-18 rounded-t-2xl pt-6 mb-6 first-letter:text-2xl first-letter:pl-3 dark:bg-card dark:ring-1 dark:ring-border">
           <RichText lexicalData={article.content} />
         </div>
         <div className="">
@@ -80,7 +80,7 @@ export default async function BlogPostPage({
                   <div className="">
                     <span className="font-bold"> Read This:</span>{" "}
                     <Link
-                      className="underline text-accent animate-pulse"
+                      className="underline text-accent animate-pulse dark:text-link"
                       href={`/blog/${randomArticle.slug}`}>
                       {randomArticle.title}
                     </Link>{" "}
@@ -101,14 +101,18 @@ export default async function BlogPostPage({
                 tags?.map((tag) => {
                   if (typeof tag === "object" && tag !== null) {
                     return (
-                      <Button className="bg-accent capitalize" key={tag?.slug}>
+                      <Button
+                        className="bg-accent capitalize dark:text-white dark:hover:bg-accent/90"
+                        key={tag?.slug}>
                         {tag?.name}
                       </Button>
                     );
                   }
 
                   return (
-                    <Button className="bg-accent" key={tag}>
+                    <Button
+                      className="bg-accent dark:text-white dark:hover:bg-accent/90"
+                      key={tag}>
                       {tag}
                     </Button>
                   );

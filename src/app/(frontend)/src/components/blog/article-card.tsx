@@ -62,5 +62,5 @@ export function ArticleCard({
 }
 
 export function ArticleCardSkeleton() {
-    return <div className="rounded-md h-[350px] animate-pulse bg-accent/60" />
+    return <div className="rounded-md h-[350px] animate-pulse bg-accent/60 dark:bg-muted" />
 }
