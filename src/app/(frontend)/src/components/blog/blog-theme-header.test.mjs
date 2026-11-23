@@ -261,6 +261,18 @@ describe("Header on and off /blog", () => {
     assert.equal(tab.isDark(), false);
     assert.equal(tab.html.style.colorScheme, "");
   });
+
+  it("makes /about light after a dark post, and Back returns to dark", async () => {
+    const tab = await load({ pathname: "/blog/some-post", saved: "dark" });
+    assert.equal(tab.isDark(), true);
+    await tab.go("/about");
+    assert.equal(tab.isDark(), false);
+    assert.equal(tab.html.style.colorScheme, "");
+    assert.equal(toggles(tab.container).length, 0);
+    await tab.go("/blog/some-post");
+    assert.equal(tab.isDark(), true);
+    assert.equal(tab.html.style.colorScheme, "dark");
+  });
 });
 
 describe("Header on a missing /blog page", () => {
