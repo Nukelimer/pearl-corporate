@@ -63,6 +63,13 @@ export default async function BlogPostPage({
       <div className=" lg:flex lg:max-w-6xl lg:mx-auto lg:gap-x-6 px-5 mt-8   ">
         <div className="bg-white rounded-b-2xl lg:mt-18 rounded-t-2xl pt-6 mb-6 first-letter:text-2xl first-letter:pl-3 dark:bg-card dark:ring-1 dark:ring-border">
           <RichText lexicalData={article.content} />
+          <p className="mx-auto max-w-4xl px-4 pb-6">
+            <Link
+              className="underline text-accent dark:text-link focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:focus-visible:outline-link"
+              href="/about">
+              Back to About Us
+            </Link>
+          </p>
         </div>
         <div className="">
           <Abt_SectionHeader
